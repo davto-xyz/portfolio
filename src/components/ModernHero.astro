@@ -1,0 +1,80 @@
+---
+import Image from 'astro/components/Image.astro';
+import SocialIcons from './SocialIcons.astro';
+import heroImage from '../assets/images/hero.png';
+import gsap from 'gsap';
+// Constantes de contenido
+const hero_content = {
+  cta: {
+    text: "Start the experience",
+    href: "/projects"
+  },
+  contact: {
+    phone: "+34 234 567 8900"
+  },
+  profile: {
+    name: "David Torres",
+    role: "Full Stack Developer",
+    experience: "5+ Years Building Digital Products",
+    availability: "UI/UX Designer",
+    description: "Modern Digital Solutions",
+    status: "Available for work"
+  }
+};
+---
+
+<section id="hero" class="bg-[#E3E2DC] overflow-visible h-screen  z-40 flex md:block  md:pt-0">
+  <div class="flex flex-col lg:flex-row items-start justify-evenly lg:justify-center  2xl:justify-center md:justify-center md:items-center h-[85dvh] lg:h-[90vh]">
+    
+    <!-- Content Left Side -->
+    <div class="w-full flex items-center justify-center lg:justify-start order-2 lg:order-1">
+      <div class="text-center lg:text-left  sm:px-0">
+        
+        <!-- Large Title -->
+        <h1 class="hero-animate text-3xl sm:text-4xl md:text-5xl font-black text-black leading-none mb-2.5 tracking-tighter font-stretch-ultra-expanded uppercase w-full" id="principal">
+          ¡Hola!, soy David
+        </h1>
+        
+        <!-- Subtitle -->
+        <div class="hero-animate mb-5 break-words" data-speed="0.8">
+          <h2 class="text-center lg:text-left text-2xl sm:text-2xl md:text-3xl font-medium font-stretch-ultra-expanded text-black mb-2 uppercase tracking-tighter leading-none ">
+           Desarrollador <span class="text-gold-500 font-bold">Full-stack</span>
+          </h2>
+        </div>
+        <div class="hero-animate mb-5 text-justify text-md md:text-lg " data-speed="0.7">
+          Me apasiona crear soluciones digitales que realmente importen. Transformo ideas en productos web que conectan con los usuarios y generan resultados reales.
+        </div>
+        
+        <!-- Social Icons -->
+        <div class="hero-animate flex items-center justify-center lg:justify-start mt-6" data-speed="0.6">
+          <SocialIcons size="lg" />
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Image Right Side -->
+    <div class="relative md:h-full w-full flex items-center justify-center lg:justify-end order-1 lg:order-2 md:mb-0 animate-fade-in animate-duration-1000 animate-delay-300 mb-5" data-speed="0.8">
+      <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-lg">
+        <!-- Main Image -->
+        <div class="md:w-full rounded-full border-4 border-gray-900 overflow-hidden hover:scale-105 shadow-lg hover:shadow-2xl transition-all duration-300 mx-auto w-60">
+         
+          
+          <!-- Actual Image -->
+          <Image 
+            src={heroImage} 
+            alt="David Torres - Portfolio" 
+            class="md:w-full md:h-full  object-cover hover:scale-110 transition-transform duration-500 relative z-20"
+            loading="eager"
+            format="webp"
+            quality={100}
+          />
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</section>

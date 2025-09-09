@@ -1,22 +1,30 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import ToStart from '../components/ToStart.astro';
+import '../styles/global.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
+		<meta name="theme-color" content="#E3E2DC">
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="../icons/favicon.ico">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Portfolio de David Torres - Full Stack Developer especializado en tecnologías web modernas" />
+		<title>David Torres - Full Stack Developer Portfolio</title>
 	</head>
-	<body>
+	<body class="font-sans bg-[#E3E2DC] px-4 sm:px-8 md:px-8 lg:px-8 xl:px-[2rem] 2xl:px-[10rem] responsive-ultra-wide-margins 2xl:pt-5 overflow-x-hidden">
+		<NavBar></NavBar>
 		<slot />
+		
+		<ToStart></ToStart>
+		<Footer></Footer>
+		
+		<script>
+			import '../scripts/smoothScroll.js';
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,93 @@
+---
+// ToStart.astro - Botón para ir al inicio de la página
+---
+
+<!-- Botón flotante para ir arriba -->
+<button 
+  id="topbutton" 
+  class="fixed bottom-6 right-6 z-50  text-black rounded-full p-3 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 opacity-0 invisible border-3 border-black cursor-pointer bg-[#E3E2DC]"
+  style="display: none;"
+  title="Ir al inicio"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<style>
+  /* Estado inicial del botón */
+  #topbutton {
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px) scale(0.8);
+  }
+  
+  /* Clase para mostrar con animación suave */
+  #topbutton.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1);
+  }
+  
+  /* Clase para ocultar con animación suave */
+  #topbutton.hide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(0) scale(0.8);
+  }
+  
+  /* Animación de entrada suave */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(0px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Animación de salida suave */
+  @keyframes fadeOutDown {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) scale(0.8);
+    }
+  }
+  
+  /* Aplicar animación de entrada */
+  #topbutton.animate-in {
+    animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+  
+  /* Aplicar animación de salida */
+  #topbutton.animate-out {
+    animation: fadeOutDown 0.1s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+  }
+  
+  /* Efecto de pulso sutil al hacer hover */
+  #topbutton:hover {
+    transform: translateY(0) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Para dispositivos móviles, hacer el botón un poco más grande */
+  @media (max-width: 768px) {
+    #topbutton {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 1rem;
+    }
+    
+    #topbutton svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+</style>
+
+<script src="../scripts/top.js"></script>

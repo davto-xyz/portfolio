@@ -1,0 +1,53 @@
+---
+import Title from './Title.astro';
+
+interface Props {
+  class?: string;
+  variant?: 'default' | 'compact';
+}
+
+const { 
+  class: className = '', 
+  variant = 'default'
+} = Astro.props;
+---
+
+<section id="contact" class={`py-20 min-h-screen flex items-center bg-[#E3E2DC] ${className}`}>
+  <div class="w-full ">
+    
+    <div class="text-center mb-12">
+      <Title title="Contacto"></Title>
+      
+    </div>
+    
+    <!-- CTA Card -->
+    <div class="">
+      <div class="bg-white/80 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative overflow-hidden border-3 border-gray-950">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300"></div>
+        
+        <!-- Content -->
+        <div class="p-12 relative z-10 text-center">
+          
+          
+          <p class="text-xl text-gray-950 leading-relaxed mb-8  p-6  font-stretch-expanded tracking-tighter">
+            Tanto si tienes un proyecto interesante, una oportunidad laboral, o simplemente quieres conectar, me encantaría escucharte. Respondo todos los mensajes en menos de 24 horas.
+          </p>
+          
+          <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+            <a 
+              href="/contact"
+              class="inline-flex items-center px-8 py-4 bg-gold-500 text-gray-950 font-black uppercase tracking-wider rounded-full hover:bg-gold-600 hover:-translate-y-1 hover:scale-105 transition-all duration-300 group/btn shadow-lg hover:shadow-xl border-3 border-gray-950"
+            >
+              <span>Contacta conmigo</span>
+              <svg class="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

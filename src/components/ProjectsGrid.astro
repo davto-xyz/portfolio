@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import Title from './Title.astro';
+
+
+export interface Props {
+  limit?: number;
+  className?: string;
+}
+
+const { 
+  limit,
+  className = ""
+} = Astro.props;
+
+// Obtener todos los proyectos desde MDX
+const allProjects = await getCollection('projects');
+
+// Ordenar por orden especificado en frontmatter o por título
+const sortedProjects = allProjects.sort((a, b) => {
+  if (a.data.order && b.data.order) {
+    return a.data.order - b.data.order;
+  }
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Limitar el número de proyectos si se especifica
+const projects = limit ? sortedProjects.slice(0, limit) : sortedProjects;
+---
+
+<section id="projects" class="relative py-20 min-h-screen flex items-center">
+  <div class="w-full  ">
+    <div class="text-center mb-12">
+      <Title title="Proyectos"></Title>
+    </div>
+    <div class={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 ${className}`}>
+  {projects.map((project, index) => (
+    <div class="project-card border-3 border-gray-950  rounded-3xl  group relative overflow-hidden" data-speed={0.85 + (index * 0.05)}>
+
+      <!-- Content -->
+      <div class="space-y-3 relative z-10 px-4 py-5">
+            <div class="flex items-center justify-between">
+        
+          <div class="">
+            <h3 class="font-stretch-ultra-expanded tracking-tighter font-black text-gray-950 group-hover:text-gold-500 transition-colors duration-300 sm:text-xl 2xl:text-3xl text-2xl">
+        <!-- Title -->
+              {project.data.title}
+            </h3>
+          </div>
+          <div class="justify-end">
+            <!-- Tag positioned in top-left corner -->
+            <span class="z-20 px-4 py-2 bg-gold-500 text-gray-950 text-xs font-bold uppercase tracking-tighter rounded-full shadow-lg border-3 border-gray-950 overflow-x-clip">
+              {project.data.tag}
+            </span>
+          </div>
+          
+        
+      </div>
+        
+        <!-- Description -->
+        <p class="text-gray-600 leading-relaxed text-sm">
+          {project.data.description}
+        </p>
+        
+        <!-- Technologies -->
+        {project.data.technologies && (
+          <div class="flex flex-wrap gap-2 pt-2">
+            {project.data.technologies.slice(0, 4).map((tech) => (
+              <span class="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gold-100 hover:text-gold-700 transition-colors duration-200">
+                {tech}
+              </span>
+            ))}
+            {project.data.technologies.length > 4 && (
+              <span class="text-xs px-3 py-1 bg-gold-100 text-gold-600 rounded-full font-medium">
+                +{project.data.technologies.length - 4}
+              </span>
+            )}
+          </div>
+        )}
+        <div class="flex justify-between items-center">
+          <div class="pt-4">
+            <a 
+              href={`/projects/${project.data.name}`}
+              class="inline-flex items-center text-gray-950 bg-gold-500 font-bold hover:text-gold-600 hover:scale-105 transition-all duration-300 2xl:text-sm text-xs group/link border-3 border-gray-950 hover:bg-gold-100 px-4 py-2 rounded-full tracking-tighter"
+              >
+              + INFO
+            </a>
+          </div>
+
+          <!-- View Project Link -->
+          <div class="pt-4">
+            <a 
+              href={`/projects/${project.slug}`}
+              class="inline-flex items-center text-gray-950  font-bold hover:text-gold-600 hover:scale-105 transition-all duration-300 text-sm group/link tracking-tighter  px-4 py-2 "
+              >
+              VER PROYECTO 
+              <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+          
+  ))}
+    </div>
+  </div>
+</section>

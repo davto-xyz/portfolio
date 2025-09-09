@@ -9,6 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.8"
+    "@astrojs/mdx": "^4.3.3",
+    "@fontsource/inter": "^5.2.6",
+    "@tailwindcss/postcss": "^4.1.11",
+    "astro": "^5.12.8",
+    "astro-icon": "^1.1.5",
+    "flowbite": "^3.1.2",
+    "gsap": "^3.13.0",
+    "lucide": "^0.539.0",
+    "lucide-astro": "^0.539.0",
+    "pnpm": "^10.14.0",
+    "tailwindcss": "^4.1.11"
   }
 }

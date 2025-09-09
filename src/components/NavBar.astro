@@ -1,0 +1,88 @@
+---
+import Image from 'astro/components/Image.astro';
+import Logo from '../assets/images/logo.png';
+
+export interface Props {
+  links?: Array<{
+    href: string;
+    text: string;
+    active?: boolean;
+    isHighlight?: boolean;
+  }>;
+}
+
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/';
+
+const { 
+  links = [
+  /*   { href: "#projects", text: "PROYECTOS" }, */
+    { href: "#experience", text: "EXPERIENCIA" },
+    { href: "#skills", text: "HABILIDADES" },
+    { href: "#about", text: "SOBRE MÍ" },
+    { href: "#contact", text:"CONTACTO"}
+  ]
+} = Astro.props;
+
+const linksWithActiveState = links.map(link => ({
+  ...link,
+  active: isHomePage && (currentPath === link.href || (currentPath === '/' && link.href === '/'))
+}));
+
+// Create two separate contact links
+const contactPageLink = { href: '/contact', text: 'CONTACTO', active: currentPath === '/contact' };
+const mainLinks = linksWithActiveState; // Keep anchor link in sidebar navigation
+---
+
+<!-- Unified Navigation Bar -->
+<nav class="w-full max-w-full overflow-hidden bg-[#E3E2DC] backdrop-blur-md pt-5 py-2 sm:py-4 px-4 sm:px-8 animate-slide-in-from-top animate-duration-700">
+  <div class="flex items-center justify-between w-full max-w-full">
+    <!-- Logo -->
+    <div class="flex-shrink-0 overflow-hidden rounded-full border-3 border-gray-900 hover:scale-105 transition-transform duration-300 animate-slide-in-from-left animate-duration-700">
+      <a href="/">
+        <Image alt="David Torres Logo" src={Logo} class="w-16 sm:w-20" />
+      </a>
+    </div>
+    
+    <!-- Contact Icon on the right (goes to contact page) -->
+    <div class="border-3 rounded-full text-black p-2 hover:scale-105 hover:bg-amber-500 transition-all  duration-400 ">
+      <a 
+        href={contactPageLink.href} 
+        class='relative   flex items-center justify-center rounded-full p-2'
+        title="Página de contacto"
+      >
+        
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Left Sidebar Navigation (Desktop Only) -->
+<nav class="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
+  <div class="border-3 rounded-full text-black py-6 px-3">
+    <div class="flex flex-col items-center space-y-4">
+      {mainLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`
+            relative uppercase text-sm font-bold font-stretch-ultra-expanded tracking-tighter transition-all duration-300 hover:scale-110 block text-center rounded-full p-3 m-0
+            ${link.active 
+              ? 'text-white bg-gold-500' 
+              : 'text-black hover:text-gold-500'
+            }
+          `}
+          style="writing-mode: vertical-rl; text-orientation: mixed;"
+        >
+          {link.text}
+          {isHomePage && (
+            <div class={`absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-0.5 h-4 hover:text-[#F6A60D] bg-gray-800 transition-all duration-300  ${link.active ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Title from './Title.astro';
+import Image from 'astro/components/Image.astro';
+
+// Obtener todas las skills desde MDX
+const allSkills = await getCollection('skills');
+
+// Ordenar por orden especificado en frontmatter
+const skills = allSkills.sort((a, b) => {
+  if (a.data.order && b.data.order) {
+    return a.data.order - b.data.order;
+  }
+  return a.data.category.localeCompare(b.data.category);
+});
+---
+
+<section class="bg-[#E3E2DC] py-20 min-h-screen flex items-center" id="skills">
+  <div class="w-full ">
+    
+    <!-- Header -->
+    <div class="mb-12 text-center">
+      <Title title='Habilidades'></Title>
+      <p class="text-xl text-gray-600 mt-6 leading-relaxed">
+        Mi stack tecnológico basado en +5 años de experiencia profesional
+      </p>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+      {skills.map((skillCategory) => (
+        <div class="bg-[#f2f0f0] rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative overflow-hidden hover:bg-[#ebebeb]">
+          <!-- Background Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300 border-3 rounded-3xl border-gray-950"></div>
+          
+          <!-- Content -->
+          <div class="p-6 relative z-10">
+            <div class="text-center mb-6">
+              <h3 class="text-xl 2xl:text-2xl font-black text-gray-950 group-hover:text-gold-500 transition-colors duration-300 mb-3 font-stretch-ultra-expanded uppercase">
+                {skillCategory.data.category}
+              </h3>              
+            </div>
+            
+            <!-- Render skills normales -->
+            <div class="grid grid-cols-3 gap-4">
+              {skillCategory.data.skills?.map((skill) => (
+                <div class="flex flex-col items-center justify-center gap-0.5 p-3 rounded-xl bg-white/80 border-2 border-gray-800 hover:border-gold-500 transition-all duration-200 hover:scale-105 hover:bg-white text-center">
+                  <div class="w-8 h-8 lg:w-16 lg:h-16 flex items-center justify-center">
+                    {skill.iconType === 'url' ? (
+                      <img 
+                        src={skill.icon} 
+                        alt={`${skill.name} icon`}
+                        class="w-12 h-12 lg:w-16 lg:h-16 2xl:w-10 2xl:h-10 object-contain"                       
+                      />
+                    ) : (
+                      <span class="text-3xl lg:text-4xl">{skill.icon}</span>
+                    )}
+                  </div>
+                  <span class="font-medium text-sm lg:text-base text-gray-900 leading-tight">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-[#E3E2DC]/70 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative overflow-hidden hover:bg-[#ebeae4] max-w-4xl mx-auto">
+      <!-- Background Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300 border-3 rounded-3xl border-gray-950"></div>
+      
+      
+
+  </div>
+</section>
