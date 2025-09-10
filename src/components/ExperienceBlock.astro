@@ -23,7 +23,7 @@ const experiences = allExperiences.sort((a, b) => {
       <div class="w-full flex justify-center">
         <Title title="Experiencia" />
       </div>
-      <p class="text-xl text-gray-600 mt-6 w-full leading-relaxed">
+      <p class="text-xl  mt-6 w-full leading-relaxed text-gray-800  font-stretch-expanded tracking-tighter">
         +5 años construyendo experiencias digitales extraordinarias para empresas líderes y proyectos innovadores
       </p>
     </div>
@@ -37,7 +37,7 @@ const experiences = allExperiences.sort((a, b) => {
             <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300 border-3 rounded-3xl border-gray-950"></div>
             
             <!-- Content -->
-            <div class="p-6 relative z-10 flex flex-col space-y-4 h-full lg:min-h-[500px]">
+            <div class="p-6 relative z-10 flex flex-col space-y-4 h-full lg:min-h-[500px] ">
               <!-- Header Section -->
               <div class="flex-shrink-0">
                 <!-- Company & Roles -->
@@ -49,13 +49,13 @@ const experiences = allExperiences.sort((a, b) => {
                   <!-- Role Badges -->
                   <div class="flex flex-wrap gap-2 mt-4 justify-center">
                     {exp.data.roles.map((role) => (
-                      <span class="px-3 py-1 bg-gold-500 text-gray-950 text-lg font-bold uppercase rounded-full shadow-sm hover:bg-gold-600 transition-colors duration-200 border-2 border-gray-850 tracking-tighter">
+                      <span class="px-3 py-1 bg-gold-500 text-gray-950 text-base font-bold uppercase rounded-full shadow-sm hover:bg-gold-600 transition-colors duration-200 border-2 border-gray-850 tracking-tighter">
                         {role}
                       </span>
                     ))}
                   </div>
                   
-                  <p class="text-sm text-gray-850 mt-6 flex items-center gap-2 ">
+                  <p class="text-sm text-gray-850 mt-6 flex items-center gap-2 text-gray-800 leading-none font-stretch-expanded tracking-tighter">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
@@ -70,7 +70,7 @@ const experiences = allExperiences.sort((a, b) => {
                   {exp.data.tasks.map((task) => (
                     <li class="flex items-start gap-2">
                       <span class="text-gold-500 font-bold text-xs mt-1">•</span>
-                      <p class="flex-1 text-base">{task}</p>
+                      <p class="flex-1 text-base text-gray-800">{task}</p>
                     </li>
                   ))}
                 </ul>
@@ -80,7 +80,7 @@ const experiences = allExperiences.sort((a, b) => {
               <div class="flex-shrink-0 pt-4">
                 <div class="flex flex-wrap gap-2">
                   {exp.data.technologies.map((tech) => (
-                    <span class="px-3 py-1  text-gray-950 text-xs 2xl:text-sm rounded-full  font-medium bg-white hover:text-grey-950 transition-colors duration-200">
+                    <span class="px-3 py-1  text-gray-950 text-xs 2xl:text-sm rounded-full  font-medium bg-white hover:text-grey-950 transition-colors duration-200 border-2 border-gray-950">
                       {tech}
                     </span>
                   ))}
@@ -90,6 +90,10 @@ const experiences = allExperiences.sort((a, b) => {
           </div>
         );
       })}
+    </div>
+    <div class="text-center">
+      <a href="public/61ef3726-1651-4bfe-b157-c1163fe7f538.pdf" class="bg-gold-500 text-gray-950 font-bold rounded-full border-3 border-gray-950 py-3 px-6 text-2xl leading-relaxed tracking-tighter hover:scale-105 transition-all duration-300">
+      Descargar CV</a>
     </div>
   </div>
 </section>
