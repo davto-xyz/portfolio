@@ -20,5 +20,8 @@
     "lucide-astro": "^0.539.0",
     "pnpm": "^10.14.0",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@iconify/tailwind4": "^1.0.6"
   }
 }

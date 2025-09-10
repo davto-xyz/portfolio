@@ -25,14 +25,14 @@ const skillsCollection = defineCollection({
       skills: z.array(z.object({
         name: z.string(),
         icon: z.string(), // URL del icono SVG o imagen
-        iconType: z.enum(['url', 'emoji']).optional().default('emoji'), // Tipo de icono
+        iconType: z.enum(['url', 'emoji', 'svg']).optional().default('emoji'), // Tipo de icono
         color: z.string().optional(),
       }))
     })).optional(),
     skills: z.array(z.object({
       name: z.string(),
       icon: z.string(), // URL del icono SVG o imagen
-      iconType: z.enum(['url', 'emoji']).optional().default('emoji'), // Tipo de icono
+      iconType: z.enum(['url', 'emoji', 'svg']).optional().default('emoji'), // Tipo de icono
       color: z.string().optional(),
     })).optional(),
     order: z.number().optional(),
