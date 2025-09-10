@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import SocialIcons from './SocialIcons.astro';
 import heroImage from '../assets/images/hero.png';
-import CV from '../../public/CV-DavidTorres.pdf'
 ---
 
 <section id="hero" class="bg-[#E3E2DC] overflow-visible h-screen  z-40 flex md:block  md:pt-0">
@@ -28,13 +27,8 @@ import CV from '../../public/CV-DavidTorres.pdf'
         </div>
         
         <!-- Social Icons -->
-        <div class="hero-animate flex flex-col lg:flex-row lg:flex-wrap items-center justify-center lg:justify-start lg:my-6 my-0 gap-6" data-speed="0.6">
+        <div class="hero-animate flex items-center justify-center lg:justify-start mt-6" data-speed="0.6">
           <SocialIcons size="lg" />
-          <div class="w-full lg:w-auto lg:mt-0">
-            <a href={CV} class="block w-full lg:w-auto lg:inline-block text-center bg-gold-500 hover:bg-transparent text-gray-950 font-extrabold lg:font-bold rounded-full border-3 border-gray-950 lg:py-3 lg:px-4 lg:ml-8 py-3 px-8 text-xl  leading-relaxed tracking-tighter hover:scale-105 transition-all duration-300">
-              Descargar CV
-            </a>
-          </div>
         </div>
          
       </div>
