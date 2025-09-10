@@ -2,25 +2,7 @@
 import { Image } from 'astro:assets';
 import SocialIcons from './SocialIcons.astro';
 import heroImage from '../assets/images/hero.png';
-import gsap from 'gsap';
-// Constantes de contenido
-const hero_content = {
-  cta: {
-    text: "Start the experience",
-    href: "/projects"
-  },
-  contact: {
-    phone: "+34 234 567 8900"
-  },
-  profile: {
-    name: "David Torres",
-    role: "Full Stack Developer",
-    experience: "5+ Years Building Digital Products",
-    availability: "UI/UX Designer",
-    description: "Modern Digital Solutions",
-    status: "Available for work"
-  }
-};
+import CV from '../../public/CV-DavidTorres.pdf'
 ---
 
 <section id="hero" class="bg-[#E3E2DC] overflow-visible h-screen  z-40 flex md:block  md:pt-0">
@@ -46,10 +28,13 @@ const hero_content = {
         </div>
         
         <!-- Social Icons -->
-        <div class="hero-animate flex items-center justify-center lg:justify-start mt-6" data-speed="0.6">
+        <div class="hero-animate flex items-center justify-center lg:justify-start my-6" data-speed="0.6">
           <SocialIcons size="lg" />
+          <a href={CV} class="bg-gold-500 hover:bg-transparent text-gray-950 font-bold rounded-full border-3 border-gray-950 py-2 px-4 ml-8 text-2xl leading-relaxed tracking-tighter hover:scale-105  transition-all duration-300">
+            Descargar CV
+          </a>
         </div>
-        
+         
       </div>
     </div>
 
