@@ -54,7 +54,7 @@ const hero_content = {
     </div>
 
     <!-- Image Right Side -->
-    <div class="relative md:h-full w-full flex items-center justify-center lg:justify-end order-1 lg:order-2 md:mb-0 animate-fade-in animate-duration-1000 animate-delay-300 mb-5" data-speed="0.8">
+    <div class="hero-animate relative md:h-full w-full flex items-center justify-center lg:justify-end order-1 lg:order-2 md:mb-0 mb-5" data-speed="0.8">
       <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-lg">
         <!-- Main Image -->
         <div class="md:w-full rounded-full border-4 border-gray-900 overflow-hidden hover:scale-105 shadow-lg hover:shadow-2xl transition-all duration-300 mx-auto w-60">
@@ -78,3 +78,32 @@ const hero_content = {
     
   </div>
 </section>
+
+<style>
+  .hero-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .hero-animate:nth-child(1) { animation-delay: 0.1s; }
+  .hero-animate:nth-child(2) { animation-delay: 0.2s; }
+  .hero-animate:nth-child(3) { animation-delay: 0.3s; }
+  .hero-animate:nth-child(4) { animation-delay: 0.4s; }
+  .hero-animate:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-animate {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
