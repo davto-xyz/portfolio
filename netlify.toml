@@ -4,12 +4,19 @@
 
 [build.environment]
   NODE_VERSION = "18"
-
- [[redirects]]
+  
+# Redirect 404s to /404 (cambia la URL)
+  [[redirects]]
     from = "/*"
     to = "/404"
     status = 302
     force = false
+
+  # Servir la página 404 con status correcto
+  [[redirects]]
+    from = "/404"
+    to = "/404.html"
+    status = 404
 
 # Enable Astro's static site generation
 [context.production]
