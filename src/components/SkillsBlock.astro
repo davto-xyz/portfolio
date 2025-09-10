@@ -71,22 +71,12 @@ const softSkills = softSkillsData?.data.skills || [];
     <!-- Soft Skills Row -->
     <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-6 md:gap-8 max-w-5xl mx-auto mb-12">
       {softSkills.map((skill) => (
-        <div class="relative flex flex-col items-center justify-center p-5 rounded-full bg-transparent border-gray-950 border-3 hover:border-gold-500 transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl group w-32 h-32">
-          <div class="w-14 h-14 mb-1 flex items-center justify-center">
-            {skill.iconType === 'svg' ? (
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" set:html={skill.icon}>
+        <div class="relative flex flex-col items-center justify-center py-4 rounded-full bg-transparent border-gray-950 border-3 hover:border-gold-500 transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl group w-48 h-24">
+          <div class="w-12 h-12 mb-1 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" set:html={skill.icon}>
               </svg>
-            ) : skill.iconType === 'url' ? (
-              <img 
-                src={skill.icon} 
-                alt={`${skill.name} skill`}
-                class="w-full h-full object-contain"
-              />
-            ) : (
-              <span class="text-3xl">{skill.icon}</span>
-            )}
           </div>
-          <span class="text-xs font-medium text-center">{skill.name}</span>
+          <span class="text-xs font-normal font-stretch-expanded text-center px-5">{skill.name}</span>
         </div>
       ))}
     </div>

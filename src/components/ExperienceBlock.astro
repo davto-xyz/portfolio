@@ -37,7 +37,7 @@ const experiences = allExperiences.sort((a, b) => {
             <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gold-500/5 group-hover:to-gold-500/10 transition-all duration-300 border-3 rounded-3xl border-gray-950"></div>
             
             <!-- Content -->
-            <div class="p-6 relative z-10 flex flex-col space-y-4 h-full lg:min-h-[500px] ">
+            <div class="p-8 relative z-10 flex flex-col space-y-4 h-full lg:min-h-[500px] ">
               <!-- Header Section -->
               <div class="flex-shrink-0">
                 <!-- Company & Roles -->
@@ -78,7 +78,7 @@ const experiences = allExperiences.sort((a, b) => {
               
               <!-- Technologies - Show all -->
               <div class="flex-shrink-0 pt-4">
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2 justify-start">
                   {exp.data.technologies.map((tech) => (
                     <span class="px-3 py-1  text-gray-950 text-xs 2xl:text-sm rounded-full  font-medium bg-white hover:text-grey-950 transition-colors duration-200 border-2 border-gray-950">
                       {tech}
