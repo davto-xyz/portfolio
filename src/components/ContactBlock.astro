@@ -1,5 +1,6 @@
 ---
 import Title from './Title.astro';
+import { contactData } from '../data/contact';
 
 interface Props {
   class?: string;
@@ -10,14 +11,6 @@ const {
   class: className = '', 
   variant = 'default'
 } = Astro.props;
-
-const contactData = {
-  email: 'david.tl@outlook.com',
-  linkedin: 'https://www.linkedin.com/in/david-torres-l%C3%B3pez/',
-  github: 'https://github.com/davto-xyz',
-  twitter: 'https://x.com/davtoxyz',
-  instagram: 'https://www.instagram.com/davto.xyz/',
-};
 ---
 
 <section id="contact" class={`py-20 min-h-screen flex items-center bg-[#E3E2DC] ${className}`}>
@@ -32,7 +25,7 @@ const contactData = {
     </div>
 
     <!-- Contact Methods Grid -->
-    <div class="grid md:grid-cols-2 gap-3 mb-20 justify-items-center">
+    <div class="flex gap-3 mb-20 justify-center items-center w-full max-w-4xl mx-auto">
       
       <!-- Email -->
       <div class="flex justify-center  relative overflow-hidden h-full w-1/2 lg:w-2/3">

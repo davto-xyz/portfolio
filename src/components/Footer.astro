@@ -1,5 +1,6 @@
 ---
 import SocialIcons from './SocialIcons.astro';
+import { contactData } from '../data/contact';
 ---
 
 <footer class="bg-white text-white py-12 border-3 border-gray-950 rounded-2xl">
@@ -20,18 +21,17 @@ import SocialIcons from './SocialIcons.astro';
          <div class="flex items-center mb-6 lg:items-center">
 
            <div class=" flex items-center justify-between   border-3 w-fit  border-gray-950 rounded-2xl">
-             <a 
-             href="mailto:david.torres@ejemplo.com"
+             <p 
+             
              class="inline-flex items-center px-6 pr-3 font-base text-lg text-gray-950 font-stretch-125%"
              >
-             
-             david.tl@outlook.com
-            </a>
+             {contactData.email}  
+           </p>
             
             <button 
             id="copyEmailBtn"
             class="py-3 pr-6"
-            data-email="david.torres@ejemplo.com"
+            data-email={contactData.email}  
             title="Copiar email al portapapeles"
             >
             <svg id="copyIcon" class="w-5 h-5 text-gray-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">

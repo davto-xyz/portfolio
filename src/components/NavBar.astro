@@ -24,14 +24,7 @@ const {
   ]
 } = Astro.props;
 
-const linksWithActiveState = links.map(link => ({
-  ...link,
-  active: isHomePage && (currentPath === link.href || (currentPath === '/' && link.href === '/'))
-}));
 
-// Create two separate contact links
-const contactPageLink = { href: '/contact', text: 'CONTACTO', active: currentPath === '/contact' };
-const mainLinks = linksWithActiveState; // Keep anchor link in sidebar navigation
 ---
 
 <!-- Unified Navigation Bar -->
@@ -47,7 +40,7 @@ const mainLinks = linksWithActiveState; // Keep anchor link in sidebar navigatio
     <!-- Contact Icon on the right (goes to contact page) -->
     <div class="navbar-animate border-3 rounded-full text-black p-2 hover:scale-105 hover:bg-amber-500 transition-all  duration-400 ">
       <a 
-        href={contactPageLink.href} 
+        href='#contact' 
         class='relative   flex items-center justify-center rounded-full p-2'
         title="Página de contacto"
       >
@@ -64,7 +57,7 @@ const mainLinks = linksWithActiveState; // Keep anchor link in sidebar navigatio
 <nav class="navbar-animate fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
   <div class="border-3 rounded-full text-black py-6 px-3">
     <div class="flex flex-col items-center space-y-4">
-      {mainLinks.map((link) => (
+      {links.map((link) => (
         <a 
           href={link.href} 
           class={`
