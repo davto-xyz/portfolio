@@ -14,14 +14,9 @@
     "@tailwindcss/postcss": "^4.1.11",
     "astro": "^5.12.8",
     "astro-icon": "^1.1.5",
-    "flowbite": "^3.1.2",
-    "gsap": "^3.13.0",
-    "lucide": "^0.539.0",
-    "lucide-astro": "^0.539.0",
     "pnpm": "^10.14.0",
     "tailwindcss": "^4.1.11"
   },
-  "devDependencies": {
-    "@iconify/tailwind4": "^1.0.6"
-  }
+  "devDependencies": {},
+  "packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef"
 }

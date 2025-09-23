@@ -39,15 +39,6 @@ const skillsCollection = defineCollection({
   }),
 });
 
-const aboutCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    subtitle: z.string().optional(),
-    description: z.string(),
-    highlights: z.array(z.string()).optional(),
-  }),
-});
 
 const experienceCollection = defineCollection({
   type: 'content',
@@ -65,6 +56,5 @@ const experienceCollection = defineCollection({
 export const collections = {
   'projects': projectsCollection,
   'skills': skillsCollection,
-  'about': aboutCollection,
   'experience': experienceCollection,
 };
